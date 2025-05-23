@@ -5,9 +5,11 @@
 \usepackage[utf8]{inputenc}
 \usepackage[OT1]{fontenc}
 \usepackage[datesep={}]{datetime2}
+\makeatletter\let\saved@bibitem\@bibitem\makeatother
 \usepackage[colorlinks, urlcolor={purple!75!black}, plainpages=true]{hyperref}
+\makeatletter\let\@bibitem\saved@bibitem\makeatother
 \usepackage[sfdefault]{quattrocento}
-\usepackage{array, multirow, parskip, xcolor, pifont}
+\usepackage{array, bibentry, ifthen, multirow, parskip, xcolor, pifont}
 
 \newcommand*{\ruleline}[2]{%
     \makebox[\linewidth]{#1{\color{purple!75!black}
@@ -37,7 +39,7 @@
   {\end{tabular}}
 
 \newcommand{\contentrow}[5]{
-  \emph{#1} #2 & \multirow[t]{2}{58pt}{#3--#4} \\
+  \emph{#1} #2 & \multirow[t]{2}{58pt}{#3-- #4} \\
   \small{#5} & \\
 }
 
@@ -160,5 +162,38 @@ through frequent knowledge transfers and a constant feedback loop.
 
 I'm enthusiastic about astronomy, immersive sim games, IBM keyboards
 specifically older than myself and most songs with a saxophone line. 8)
+
+\IfFileExists{\jobname.bib}{
+\rulesection{Publications}
+
+\nobibliography*
+
+\bibentry{Zambonin:202412}.
+
+\bibentry{Silvano:202412}.
+
+\bibentry{Kamers:202412}.
+
+\bibentry{Barbosa:202412}.
+
+\bibentry{Martina:202412}.
+
+\bibentry{Rosa:202504}.
+
+\bibentry{Kamers:202409}.
+
+\bibentry{Biage:202401}.
+
+\bibentry{Mayr:202309}.
+
+\bibentry{Perin:202106}.
+
+\bibentry{Zambonin:201907}.
+
+\bibentry{Perin:201806}.
+
+\bibliographystyle{abbrv}
+\nobibliography{\jobname}
+}{}
 
 \end{document}
